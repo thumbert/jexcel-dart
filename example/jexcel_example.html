@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Jexcel example</title>
+    <script src="../lib/src/jexcel.min.js"></script>
+    <link rel="stylesheet" href="../lib/src/jexcel.min.css" />
+    <script src="../lib/src/jsuites.js"></script>
+    <link rel="stylesheet" href="../lib/src/jsuites.css" type="text/css" />
+</head>
+<body>
+
+<div id="spreadsheet"></div>
+
+<script>
+data = [
+    ['Mazda', 2001, 2000],
+    ['Pegeout', 2010, 5000],
+    ['Honda Fit', 2009, 3000],
+    ['Honda CRV', 2010, 6000],
+];
+
+jexcel(document.getElementById('spreadsheet'), {
+    data:data,
+    columns:[
+        { title:'Model', width:300 },
+        { title:'Price', width:80 },
+        { title:'Model', width:100 }
+    ]
+});
+</script>
+
+
+</body>
+</html>
