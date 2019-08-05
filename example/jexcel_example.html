@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <title>Jexcel example</title>
-    <script src="../lib/src/jexcel.min.js"></script>
-    <link rel="stylesheet" href="../lib/src/jexcel.min.css" />
-    <script src="../lib/src/jsuites.js"></script>
-    <link rel="stylesheet" href="../lib/src/jsuites.css" type="text/css" />
+    <script src="../lib/jexcel.min.js"></script>
+    <link rel="stylesheet" href="../lib/jexcel.min.css" />
+    <script src="../lib/jsuites.js"></script>
+    <link rel="stylesheet" href="../lib/jsuites.css" type="text/css" />
 </head>
 <body>
 
@@ -14,18 +14,33 @@
 
 <script>
 data = [
-    ['Mazda', 2001, 2000],
-    ['Pegeout', 2010, 5000],
-    ['Honda Fit', 2009, 3000],
-    ['Honda CRV', 2010, 6000],
+    ['North', '', ''],
+    ['London', '',  ''],
 ];
+
 
 jexcel(document.getElementById('spreadsheet'), {
     data:data,
-    columns:[
-        { title:'Model', width:300 },
-        { title:'Price', width:80 },
-        { title:'Model', width:100 }
+    columns: [
+        {
+            type:'dropdown',
+            title:'Region',
+            source:['South East','South West','North','London'],
+            width:'200',
+        },
+        {
+            type:'dropdown',
+            title:'Available in',
+            multiple:true,
+            source:['Red','Yellow','Blue'],
+            width:'200',
+        },
+        {
+            type:'autocomplete',
+            title:'Region',
+            source:['AL', 'AZ', 'MD', 'MA', 'ME', 'MI'],
+            width:'200',
+        },
     ]
 });
 </script>
