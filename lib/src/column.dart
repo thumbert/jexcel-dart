@@ -10,6 +10,7 @@ class Column {
     String type,
     List<String> source,
     bool multiple = false, // for multiple selection
+    bool readOnly = false,
   });
 
 
@@ -25,9 +26,17 @@ class Column {
   // for dropdown multiple selection
   external bool get multiple;
   external set multiple(bool v);
+  // if this column is read only
+  external bool get readOnly;
+  external set readOnly(bool v);
+
+
 }
 
-enum ColumnType {autocomplete, checkbox, dropdown, text}
+
+
+
+//enum ColumnType {autocomplete, checkbox, dropdown, text}
 
 //class Column2 {
 //  _Column _jsColumn;

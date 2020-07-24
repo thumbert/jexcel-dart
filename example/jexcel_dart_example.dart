@@ -2,7 +2,7 @@
 import 'dart:html';
 import 'package:jexcel_dart/jexcel_dart.dart';
 
-spreadsheet1() {
+void spreadsheet1() {
   var data = [
     ['Mazda', 2001, 2000],
     ['Pegeout', 2010, 5000],
@@ -16,39 +16,34 @@ spreadsheet1() {
     Column(title: 'Model', width: 100),
   ];
 
-  Jexcel(querySelector('#spreadsheet-1'), Options(
+  var table = Jexcel(querySelector('#spreadsheet-1'), Options(
     data: data,
     columns: columns,
   ));
+  table.hideIndex();
 }
 
-/// multiple choices and autocomplete options
-spreadsheet2() {
+void spreadsheet2() {
   var data = [
-    ['US', 'Wholemeal', true, '2019-02-12'],
-    ['UK', 'Breakfast Cereals', true, '2019-03-01'],
-    ['CA', 'Grains', false, '2018-11-10'],
-    ['BR', 'Pasta', true, '2019-01-12'],
+    ['2020-01', 50],
+    ['2020-02', 50.3],
+    ['2020-03', 52],
+    ['2020-04', 55],
   ];
-
 
   var columns = [
-    Column(title: 'Product Origin', width: 300, type: 'dropdown',
-      source: ['US', 'UK', 'CA', 'BR'], multiple: true),
-    Column(title: 'Product', width: 200),
-    Column(title: 'Stock', width: 70, type:'checkbox'),
-    Column(title: 'Available', width: 100, type:'calendar'),
+    Column(title: 'Month', width: 100, type: 'text'),
+    Column(title: 'MW', width: 80, type: 'numeric'),
   ];
 
-  Jexcel(querySelector('#spreadsheet-2'), Options(
+  var table = Jexcel(querySelector('#spreadsheet-1'), Options(
     data: data,
     columns: columns,
-    minDimensions: [10,5],
   ));
+  table.hideIndex();
 }
 
-
-main() {
-  spreadsheet1();
+void main() {
+//  spreadsheet1();
   spreadsheet2();
 }

@@ -7,12 +7,15 @@ import 'package:js/js.dart';
 part 'src/column.dart';
 part 'src/row.dart';
 
-@JS("jexcel")
+@JS('jexcel')
 class Jexcel {
   external Jexcel(Element container, Options options);
 
   external Options get options;
   external set options(Options v);
+  /// don't display row numbers
+  external void hideIndex();
+
 }
 
 @anonymous
@@ -53,6 +56,12 @@ class Options {
   external set allowRenameColumn(bool v);
   external bool get allowComments;
   external set allowComments(bool v);
+  external bool get tableOverflow;
+  external set tableOverflow(bool v);
+  external String get tableHeight;
+  external set tableHeight(String v);
+  external String get tableWidth;
+  external set tableWidth(String v);
   external bool get wordWrap;
   external set wordWrap(bool v);
 
@@ -92,6 +101,12 @@ class Options {
     bool allowRenameColumn = true,
     /// Allow comments
     bool allowComments = false,
+    /// if you want scrollbars
+    bool tableOverflow = false,
+    /// the height of the table
+    String tableHeight = '300px',
+    /// the width of the table, for example '500px'
+    String tableWidth,
     /// Global wrap
     bool wordWrap = false,
 
