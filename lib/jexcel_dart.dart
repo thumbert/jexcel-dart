@@ -6,6 +6,7 @@ import 'package:js/js.dart';
 
 part 'src/column.dart';
 part 'src/row.dart';
+part 'src/toolbar.dart';
 
 @JS('jexcel')
 class Jexcel {
@@ -22,6 +23,8 @@ class Jexcel {
 @JS()
 class Options {
   external List<dynamic> get data;
+  external set data(List<dynamic> xs);
+
   external List<Column> get columns;
   external List<Row> get rows;
   external int get minSpareRows;
@@ -69,6 +72,7 @@ class Options {
   external factory Options({
     List<dynamic> data,
     List<Row> rows,
+    List<ToolbarEntry> toolbar,
     List<Column> columns,
     /// Spare rows and columns
     int minSpareRows = 0,

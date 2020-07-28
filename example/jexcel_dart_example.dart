@@ -1,7 +1,9 @@
 
 import 'dart:html';
 import 'package:jexcel_dart/jexcel_dart.dart';
+import 'package:js/js.dart';
 
+/// Simple spreadsheet
 void spreadsheet1() {
   var data = [
     ['Mazda', 2001, 2000],
@@ -23,6 +25,8 @@ void spreadsheet1() {
   table.hideIndex();
 }
 
+
+/// Spreadsheet with toolbar and example of onclick
 void spreadsheet2() {
   var data = [
     ['2020-01', 50],
@@ -39,9 +43,25 @@ void spreadsheet2() {
   var table = Jexcel(querySelector('#spreadsheet-1'), Options(
     data: data,
     columns: columns,
+    toolbar: [
+      ToolbarEntry(type: 'i', content: 'undo'),
+      ToolbarEntry(type: 'i', content: 'redo'),
+      ToolbarEntry(type: 'i', content: 'close'),
+      ToolbarEntry(type: 'i', content: 'save',
+          onclick: allowInterop((a,b,c) => print(data))),
+      ToolbarEntry(type: 'select', k: 'font-family', v: ['Arial', 'Verdana']),
+      ToolbarEntry(type: 'select', k: 'font-size', v: ['9px', '14px', '20px']),
+    ],
   ));
   table.hideIndex();
 }
+
+/// Customizations:  in jexcel.css
+///
+/// .jexcel_content::-webkit-scrollbar {
+///    width: 10px;
+///    height: 10px;
+///}
 
 void main() {
 //  spreadsheet1();
