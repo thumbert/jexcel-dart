@@ -14,15 +14,25 @@ class Jexcel {
 
   external Options get options;
   external set options(Options v);
+  /// download the table
+  external void download();
+
+  /// get the column at position [index]
+  external List<String> getColumnData(int index);
+  /// set the data for a given column
+  external void setColumnData(int index, List<dynamic> data);
+
   /// don't display row numbers
   external void hideIndex();
 
+  external void setData(List<dynamic> data);
 }
 
 @anonymous
 @JS()
 class Options {
   external List<dynamic> get data;
+  /// Can be List<Map<String,dynamic>> or a List<List<dynamic>>
   external set data(List<dynamic> xs);
 
   external List<Column> get columns;
@@ -70,6 +80,7 @@ class Options {
 
 
   external factory Options({
+    /// test
     List<dynamic> data,
     List<Row> rows,
     List<ToolbarEntry> toolbar,
