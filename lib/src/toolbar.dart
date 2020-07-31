@@ -1,6 +1,9 @@
 @JS()
 part of jexcel_dart;
 
+/// If [type] is 'i', it's an icon.  Icons are from
+/// https://material.io/resources/icons/?style=baseline
+/// [content] is the name of the icon.
 @anonymous
 @JS()
 class ToolbarEntry {

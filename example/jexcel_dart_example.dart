@@ -40,6 +40,8 @@ void spreadsheet2() async {
     Column(title: 'MW', width: 80, type: 'numeric'),
   ];
 
+
+  /// Icons from https://material.io/resources/icons/?style=baseline
   var table = Jexcel(
       querySelector('#spreadsheet-1'),
       Options(
@@ -59,6 +61,7 @@ void spreadsheet2() async {
               type: 'select', k: 'font-size', v: ['9px', '14px', '20px']),
         ],
       ));
+
 
   /// Wait a second, and set new data
   await Future.delayed(Duration(seconds: 4));
